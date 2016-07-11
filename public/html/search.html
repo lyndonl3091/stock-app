@@ -1,0 +1,16 @@
+<h1>Searched for:</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <th>Symbol</th>
+    <th>Name</th>
+    <th>Exchange</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat ='result in results track by $index' ng-click='showCom(result.Symbol)'>
+      <td>{{result.Symbol}}</td>
+      <td>{{result.Name}}</td>
+      <td>{{result.Exchange}}</td>
+    </tr>
+  </tbody>
+</table>

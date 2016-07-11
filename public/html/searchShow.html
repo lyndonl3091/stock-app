@@ -1,0 +1,19 @@
+
+<h1>{{comp.Name}}</h1>
+
+<button class="btn btn-primary" ng-click='refresh()'>Refresh</button>
+<button class="btn btn-primary" ng-if='isAuthenticated()' ng-click='save(comp.Symbol)'>Track</button>
+<table class="table table-bordered">
+  <thead>
+    <th>symbol</th>
+    <th>High</th>
+    <th>Low</th>
+    <th>Volume</th>
+  </thead>
+  <tbody>
+    <td>{{comp.Symbol}}</td>
+    <td>{{comp.High}}</td>
+    <td>{{comp.Low}}</td>
+    <td>{{comp.Volume}}</td>
+  </tbody>
+</table>
