@@ -6,11 +6,15 @@
 <table class="table table-hover">
   <thead>
     <th>Symbol</th>
+    <th>Info</th>
+    <th>Delete?</th>
   </thead>
   <tbody ng-repeat='stock in user track by $index'>
     <tr>
-      <td>{{stock._id}}</td>
       <td>{{stock.symbol}}</td>
+      <td>
+        <button class="btn btn-primary" ng-click='showMore(stock.symbol)'>More</button>
+      </td>
       <td>
         <button class="btn btn-danger" ng-click='deleteStock(stock._id, index)'>Delete</button>
       </td>

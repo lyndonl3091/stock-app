@@ -145,4 +145,9 @@ app.controller('trackCtrl', function($scope, $state, $stateParams, User) {
     })
   }
 
+  $scope.showMore = symbol => {
+    console.log('symbol:', symbol);
+    $state.go('show', {symbol: symbol })
+  }
+
 })
