@@ -55,9 +55,24 @@ router.post('/:id', User.authMiddleware, (req,res) => {
   })
 })
 
-router.delete('/:id', User.authMiddleware, (req, res) => {
-  User.findByIdAndRemove(req.params.id, (err, user) => {
-    res.status(err? 400: 200).send(err || user)
+router.put('/:id', User.authMiddleware, (req, res) => {
+  User.findOne({'_id':req.user._id}, (err, user) => {
+    if(err) res.statis(400).send(err);
+    if(user) {
+      let index = user.stocks.indexOf(user.stocks.filter( item => {
+        return item._id == req.params.id
+      })[0])
+      console.log('index:', index);
+      if(index !== -1) {
+        user.stocks.splice(index, 1)
+
+        user.save(err => {
+          res.status(err ? 400:200).send(err);
+        })
+      }
+
+    }
+
   })
 })
 

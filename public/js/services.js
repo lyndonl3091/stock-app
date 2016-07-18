@@ -37,7 +37,8 @@ app.service('User', function($http, $q) {
   }
 
   this.deleteStock = id => {
-    return $http.delete(`/api/users/${id}`)
+    console.log('services id', id);
+    return $http.put(`/api/users/${id}`)
   }
 
 

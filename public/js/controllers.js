@@ -135,9 +135,13 @@ app.controller('trackCtrl', function($scope, $state, $stateParams, User) {
   }
 
   $scope.deleteStock = (id, index) => {
+    console.log('id:', id);
     User.deleteStock(id)
     .then(res => {
       $scope.user.splice(index, 1)
+    })
+    .catch(err => {
+      console.log('err:', err);
     })
   }
 
