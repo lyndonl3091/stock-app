@@ -61,7 +61,6 @@ app.controller('showCtrl', function($scope, $state, $stateParams, $rootScope, St
     $scope.save = symbol => {
       User.addStock(symbol)
       .then(res =>{
-      console.log('res', res);
     })
     .catch (err => {
       console.log('err', err);
@@ -108,7 +107,6 @@ app.controller('loginregisterCtrl', function($scope, $state, $rootScope, $auth) 
 })
 
 app.controller('profileCtrl', function($scope, $state, User, CurrentUser) {
-    console.log('profileCtrl!');
 
     $scope.user = CurrentUser;
 

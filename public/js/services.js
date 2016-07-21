@@ -22,13 +22,11 @@ app.service('User', function($http, $q) {
   this.getProfile = () => {
     return $http.get('/api/users/profile')
     .then(res => {
-      console.log('profile res', res);
       return $q.resolve(res.data);
     })
   }
 
   this.addStock = symbol => {
-    console.log('services symbol', symbol);
     return $http.post(`/api/users/${symbol}`)
   }
 
@@ -37,7 +35,6 @@ app.service('User', function($http, $q) {
   }
 
   this.deleteStock = id => {
-    console.log('services id', id);
     return $http.put(`/api/users/${id}`)
   }
 

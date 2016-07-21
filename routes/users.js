@@ -57,7 +57,7 @@ router.post('/:id', User.authMiddleware, (req,res) => {
 
 router.put('/:id', User.authMiddleware, (req, res) => {
   User.findOne({'_id':req.user._id}, (err, user) => {
-    if(err) res.statis(400).send(err);
+    if(err) res.status(400).send(err);
     if(user) {
       let index = user.stocks.indexOf(user.stocks.filter( item => {
         return item._id == req.params.id
@@ -70,9 +70,7 @@ router.put('/:id', User.authMiddleware, (req, res) => {
           res.status(err ? 400:200).send(err);
         })
       }
-
     }
-
   })
 })
 
