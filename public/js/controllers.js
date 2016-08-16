@@ -25,6 +25,7 @@ app.controller('searchCtrl', function($scope, $state, $stateParams, Stock) {
     Stock.search($stateParams.input)
     .then(res => {
       $scope.results = res.data
+      $scope.searchedFor = $stateParams.input
     })
     .catch(err => {
       console.log('err:', err);

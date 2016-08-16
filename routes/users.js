@@ -38,8 +38,6 @@ router.get('/:id', User.authMiddleware, (req,res) => {
 })
 
 router.post('/:id', User.authMiddleware, (req,res) => {
-  console.log('req.user', req.user);
-  console.log('req.body', req.body);
   User.findById(req.user._id, (err, user) => {
     if(err || !user) return res.status(400).send(err || {error: 'No user found.'});
 
@@ -62,7 +60,6 @@ router.put('/:id', User.authMiddleware, (req, res) => {
       let index = user.stocks.indexOf(user.stocks.filter( item => {
         return item._id == req.params.id
       })[0])
-      console.log('index:', index);
       if(index !== -1) {
         user.stocks.splice(index, 1)
 
