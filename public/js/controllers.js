@@ -3,7 +3,6 @@
 var app = angular.module('myApp');
 
 app.controller('mainCtrl', function($scope, $state, $auth, $rootScope, Stock) {
-  console.log('mainCtrl!');
 
   $scope.isAuthenticated = () => $auth.isAuthenticated();
 
@@ -71,7 +70,6 @@ app.controller('showCtrl', function($scope, $state, $stateParams, $rootScope, St
 });
 
 app.controller('loginregisterCtrl', function($scope, $state, $rootScope, $auth) {
-  console.log('loginregisterCtrl!');
 
   $scope.userLogin = () => {
     $auth.login($scope.user)
@@ -92,7 +90,6 @@ app.controller('loginregisterCtrl', function($scope, $state, $rootScope, $auth) 
       $scope.newUser.password2 = null;
       alert('Passwords must match.  Try again.')
     } else {
-      console.log('$scope.newUser', $scope.newUser)
       $auth.signup($scope.newUser)
       .then(res => {
         $auth.login($scope.newUser)
@@ -123,7 +120,6 @@ app.controller('trackCtrl', function($scope, $state, $stateParams, User) {
   User.findStocks($stateParams.userId)
   .then(res => {
     $scope.user = res.data.stocks
-    console.log('res.data', res.data.stocks);
   })
 
   $scope.refreshTrack = () => {
@@ -134,7 +130,6 @@ app.controller('trackCtrl', function($scope, $state, $stateParams, User) {
   }
 
   $scope.deleteStock = (id, index) => {
-    console.log('id:', id);
     User.deleteStock(id)
     .then(res => {
       $scope.user.splice(index, 1)
